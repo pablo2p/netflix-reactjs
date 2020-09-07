@@ -4,7 +4,10 @@ import Header from "../../components/Header";
 import "./styles.css";
 
 function Users() {
-  const userName = JSON.parse(localStorage.user).nome;
+  let userName = JSON.parse(localStorage.user).nome;
+  if (userName.length > 13) {
+    userName = userName.substr(0, 13) + "...";
+  }
 
   return (
     <>
