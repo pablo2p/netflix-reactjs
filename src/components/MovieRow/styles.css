@@ -3,7 +3,7 @@
 }
 
 .movieRow h2 {
-  margin: 0px 0px 0px 30px;
+  margin: 0px 0px 0px 37px;
 }
 
 .movieRow--list {
@@ -18,11 +18,13 @@
 .movieRow--item {
   display: inline-block;
   width: 150px;
+  height: 220px;
   cursor: pointer;
 }
 
 .movieRow--item img {
   width: 100%;
+  height: 100%;
   transform: scale(0.9);
   transition: all ease 0.2s;
 }

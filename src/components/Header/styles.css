@@ -21,15 +21,46 @@ header.black {
 }
 
 .header--logo {
-    height: 25px;
+    display: flex;
+    align-items: center;
 }
 
-.header--logo img,
+.header--logo ul {
+    margin-left: 40px;
+    list-style: none;
+    display: flex;
+}
+
+.header--logo ul li {
+    margin-right: 15px;
+}
+
+.header--logo ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.header--logo ul li a:hover {
+    opacity: 0.8;
+}
+
+.header--logo img {
+    width: 110px;
+}
+
 .header--user img {
-    height: 100%;
+    height: 35px;
+    width: 35px;
 }
 
 .header--user {
     height: 35px;
     border-radius: 3px;
+}
+
+@media (max-width: 760px) {
+    .header--logo ul {
+        display: none;
+    }
 }

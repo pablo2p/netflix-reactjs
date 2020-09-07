@@ -1,26 +1,47 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
+import Logo from "../../assets/logo.png";
+import UserPhoto from "../../assets/user.png";
 import "./styles.css";
 
-function Header({ black }) {
+function Header({ black, userLogado }) {
+  const user = localStorage.user ? JSON.parse(localStorage.user) : false;
+
   return (
     <header className={black ? "black" : ""}>
       <div className="header--logo">
-        <a href="/">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-            alt="netflix"
-          />
-        </a>
+        <Link to="/browse">
+          <img src={Logo} alt="netflix" />
+        </Link>
+        {userLogado && (
+          <ul>
+            <li>
+              <Link to="/browse">Início</Link>
+            </li>
+            <li>
+              <Link to="/browse">Séries</Link>
+            </li>
+            <li>
+              <Link to="/browse">Filmes</Link>
+            </li>
+            <li>
+              <Link to="/browse">Mais recentes</Link>
+            </li>
+            <li>
+              <Link to="/browse">Minha lista</Link>
+            </li>
+          </ul>
+        )}
       </div>
-      <div className="header--user">
-        <a href="/">
-          <img
-            src="http://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png"
-            alt="usuário"
-          />
-        </a>
-      </div>
+      {userLogado && user && (
+        <div className="header--user">
+          <Link to="/">
+            <img src={UserPhoto} alt="usuário" />
+          </Link>
+        </div>
+      )}
     </header>
   );
 }
